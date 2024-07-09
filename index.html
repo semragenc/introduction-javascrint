@@ -8,14 +8,23 @@
     <script src="./index.html" defer></script>
 </head>
 <body>
+    <input type="text" placeholder="Doğum Tarihi">
+    <input type="text" placeholder="Tarih">
+    <button onclick="calculateAge(1995,2024)">Yaş Hesapla</button>
+
+    <div style="flex-direction: column;">
+        <div><input type="text" placeholder="Adı"></div>
+        <div><input type="text" placeholder="Yaşı"></div>
+        <div><input type="text" placeholder="Email"></div>
+        <div><input type="text" placeholder="Şifre"></div>
+        <button onclick="registerUser('Semra', 28, 'ssgmail', '123456')"> Kullanıcı Kaydet</button>
+    </div>
     <script>
         console.log("HTML Folder")
-        /* 
-        Sayısal ifade --> number
-        10
-        "JavaScript is awesome!"
-        dize ifade --> string 
-        */
+        //Sayısal ifade --> number10
+        //"JavaScript is awesome!"dize ifade --> string 
+        
+
        console.log("JavaScript is awesome!");
        console.log(10);
 
@@ -228,9 +237,66 @@ const userAge = 23 //(Javascriptte bunu kullanılyoruz.)
                 sayac++
             }
             //Foksiyon Tanımlama
-            
+            //Fonsiyon isimleri camelCase yazılır.
+            //Fonsiyon isimleri emir bildirir. (Yap, git, bul) TALİMAT
+            //1.Yöntem
+            function calculateAge(birthYear, currentYear) /*Parametre*/{
+                console.log("Yaşınız: ", currentYear - birthYear)
+            }          
+            calculateAge(1996, 2024)
+            //2.Yöntem ARROW FUNCTİON / YAPILANDIRILMIŞ FONKSİYON
+            const sayYourName = (name) => {
+                console.log("Hello ", name)
+            }
+            sayYourName("Semra")
+
+            //Geri Dönüşlü Fonksiyonlar (DEĞİŞKENE TANIMLANMALI)
+
+            const sum = (a, b) => {
+                return a + b
+            }
+
+            const toplamaIslemi = sum(8, 9)
+            console.log(toplamaIslemi)
 
 
+            var userName = "Zehra"   //Global tanımlama 
+            //tAVSİYE EDİLMİYOR VAR. AMA PROJEDE HER YERDEN ERİŞMEMEİZ GEREKEN BİR ŞEY VAR İSE MECBURSAK TANIMLAYABİLİRİZ.         
+            const saveUser = () => {
+                let userName ="Semra"
+                console.log(userName)
+                let age = 28
+                console.log(userName, age)
+            }
+            //bu şekilde ilerlendiğinde usernamei dışaşrıda çağıramıyorsunuz,consoldan da bir çıktı gelmiyor.
+            //Ama yukarıda var ile tanımlarsanız çağırabiliyorsun.
+            saveUser()
+            userName = "Mehmet"
+            console.log(userName)
+
+            var users = []
+            function registerUser(name, age, email, password) {
+                const user =  {
+                    name,
+                    age,
+                    email,
+                    password
+                }
+                users.push(user)
+                console.log(users)
+
+                const mathFunctions= {
+                    sum: (a, b) => {
+                        console.log(a + b)},
+                    multiply: (a, b) => {
+                        console.log(a * b)},
+                    divide: (a, b) => {
+                        console.log(a / b)},
+                    subtract: (a, b) => {
+                        console.log(a - b)},
+                }
+            }
+            mathFunctions.sum(10, 20)
     </script>
     
 </body>
